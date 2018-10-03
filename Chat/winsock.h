@@ -19,6 +19,7 @@ protected:
 	WSADATA m_wsa_data;
 
 public:
+	winsock();
 	winsock(int ver_num_1, int ver_num_2);
 	void start_DLLS();
 	SOCKET initialize_tcp_socket();

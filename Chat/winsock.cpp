@@ -1,5 +1,12 @@
 #include "winsock.h"
 
+winsock::winsock() {
+
+	m_ver1 = 2;
+	m_ver2 = 2;
+
+}
+
 winsock::winsock(int ver_num_1, int ver_num_2) {
 
 	m_ver1 = ver_num_1;
@@ -19,6 +26,7 @@ void winsock::start_DLLS() {
 SOCKET winsock::initialize_tcp_socket() {
 	SOCKET new_sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (new_sock == INVALID_SOCKET) {
+		WSACleanup();
 		std::cout << "Could not initialize socket" << std::endl;
 		std::cin.get();
 		exit(EXIT_FAILURE);

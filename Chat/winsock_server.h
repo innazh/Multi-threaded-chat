@@ -16,6 +16,7 @@ protected:
 		*m_ofs << msg << std::endl;
 	}
 public:
+	winsock_server(int port, std::string ip, std::ofstream *ofs);
 	void bind_socket();
 	void listen_socket();
 	int find_available_socket(void);
@@ -25,7 +26,6 @@ public:
 	void echo_mode(int); 
 	void rec_mode(int socket_number, std::string username);
 	void send_mode(); 
-	winsock_server(int, std::string, std::ofstream *);
 	~winsock_server();
 };
 
